@@ -1,0 +1,12 @@
+[differs between mainline and OpenSMO_smo.net]
+Data.cs
+Main.cs
+(MySQL doesn't exist in OpenSMO_smo.net)
+User.cs
+
+[differs between mainline and OpenSMO_SandonV]
+AssemblyInfo.cs
+Config.cs
+Data.cs
+Ez.cs
+probably everything...
