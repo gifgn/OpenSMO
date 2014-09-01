@@ -4,7 +4,7 @@ XBUILD = xbuild
 all: debug release
 
 debug:
-	$(XBUILD) src/StepServer.sln
+	$(XBUILD) src/StepServer.sln /p:Configuration=Debug
 # copy configuration file and scripts to bin/Debug/
 	cp Config.ini bin/Debug/
 	mkdir -p bin/Debug/Scripts/
