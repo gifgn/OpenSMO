@@ -5,6 +5,7 @@ placed in the same folder as the executable. The server will not run if it
 cannot find the file and it does not have certain fields filled out.
 
 Comments start with "//".
+
 // this is an example comment.
 
 Server_Name (string)
