@@ -8,12 +8,12 @@ Open-source Stepmania Online server written in Mono C#.
 
 Follow my progress: http://twitter.com/ansjh
 
---------------------------------------------------------------------------------
+================================================================================
 [Prerequisites]
 * IronPython (v2.7.0.40 or greater)
 * MySQL Connector/Net (if using MySQL support)
 
---------------------------------------------------------------------------------
+================================================================================
 [Building]
 (Build steps to be verified)
 
@@ -35,56 +35,143 @@ The IronPython-related DLLs you will need to copy into your mono collection are:
 xbuild. By default, xbuild builds the Debug project. In order to build the
 Release project, you'll need to run "xbuild /p:Configuration=Release" instead.
 
---------------------------------------------------------------------------------
+================================================================================
 [Configuration]
 The server is configured with a file called "Config.ini" in the same folder as
 the exectuable. If this file does not exist, the server will not run.
-(This may not be up to date, as it is from a previous version)
 
-* Server_Name				(string)	Server display name
-* Server_HigherPriority		(bool)		Server runs at higher priority if true
-* Server_IP					(string)	IP address of the server
-* Server_Port				(int)		Port number to run the server on
-* Server_MOTD				(string)	Server message of the day
-* Server_FPS				(int)		Number of frames per second
-* Server_Offset				(int)		(??)
-* Server_Version			(int)		(??)
-* Server_MaxPlayers			(int)		Maximum number of players on the server
-* Allow_Registration		(bool)		Allow registrations on server if true
+Server_Name (string)
+--------------------
+Server display name.
 
-(SQLite-related Settings)
-* Database_UseCommit		(bool)		Performs commits if true?
-* Database_CommitTime		(int)		Amount of time to wait for a database commit?
+Server_MOTD (string)
+--------------------
+Server message of the day.
 
-(MySQL-related Settings)
-* MySql_Host				(string)	Hostname for MySQL server
-* MySql_User				(string)	Username for MySQL server
-* MySql_Password			(string)	Password for user on MySQL server
-* MySql_Database			(string)	Database name on MySQL server
-* MySql_Timeout				(string)	Default command timeout
+Server_IP (string)
+------------------
+IP address of the server.
 
-(RTS-related Settings)
-* RTS_Enabled				(bool)		(??)
-* RTS_IP					(string)	(??)
-* RTS_Port					(int)		(??)
-* RTS_ChatLines				(int)		(??)
-* RTS_Trusted				(???)		(??)
+Server_Port (int)
+-----------------
+Port number to run the server on. The default is 8765.
 
-(Others)
-* Game_ShadowBan			(bool)		(??)
+Server_FPS (int)
+----------------
+Number of frames per second to run the server at.
+The example Config.ini has 120 as a default value.
 
-(Unused)
-* Server_LogFile			(string)	Commented out in Main.cs (see AddLog)
+Server_ReadTimeout (int)
+------------------------
+(??)
+The example Config.ini has 250 as a default value.
 
-===(Example 'working' Config.ini)===
-Server_Name=freemzone
-Server_HigherPriority=false
-Server_FPS=60
-Server_IP=127.0.0.1
-Server_Port=32768
-RTS_Enabled=false
+Server_LogFile (string)
+-----------------------
+Filename to write the server log to.
+
+Server_HigherPriority (bool)
+----------------------------
+Server runs at a higher priority if true.
+
+Server_Offset (int)
+-------------------
+Advanced setting, don't change unless necessary. Default is 128.
+
+Server_Version (int)
+--------------------
+SMO Protocol version number?
+Advanced setting, don't change unless necessary. Default is 128.
+
+Server_MaxPlayers (int)
+-----------------------
+Maximum number of players allowed on the server.
+Advanced setting, don't change unless necessary. Default is 255.
+
+Allow_Registration (bool)
+-------------------------
+Allow registrations on server if true.
+
+Allow_Spectators (bool)
+-----------------------
+Allow spectators in games if true.
 
 --------------------------------------------------------------------------------
+<SQLite-related Settings>
+
+Database_UseCommit (bool)
+-------------------------
+Performs commits if true?
+
+Database_CommitTime (int)
+-------------------------
+Amount of time to wait for a database commit?
+
+--------------------------------------------------------------------------------
+<MySQL-related Settings>
+
+MySql_Host (string)
+-------------------
+Hostname for MySQL server.
+
+MySql_User (string)
+-------------------
+Username for MySQL server.
+
+MySql_Password (string)
+-----------------------
+Password for user on MySQL server.
+
+MySql_Database (string)
+-----------------------
+Database name on MySQL server.
+
+MySql_Timeout (string)
+----------------------
+Default MySQL command timeout.
+
+--------------------------------------------------------------------------------
+<RTS-related Settings>
+
+RTS_Enabled (bool)
+------------------
+If true, the Remote Terminal Server is enabled.
+
+RTS_IP (string)
+---------------
+Sets the IP address for the Remote Terminal Server.
+
+RTS_Port (int)
+--------------
+Sets the port number for the Remote Terminal Server.
+
+RTS_ChatLines (int)
+-------------------
+Sets the number of chat lines to show on the RTS.
+
+RTS_Trusted (string)
+--------------------
+Sets a trusted IP for running commands on the RTS.
+
+--------------------------------------------------------------------------------
+<Game-related Settings>
+
+Game_FullComboIsAA (bool)
+-------------------------
+If true, Full Combo'ing a song gives a grade of AA (GradeTier_03).
+Default from example Config.ini is true.
+
+Game_ShadowBan (bool)
+---------------------
+If true, (??).
+Default from example Config.ini is true.
+
+Game_AntiCheat (bool)
+---------------------
+If true, (??).
+Default from example Config.ini is false.
+
+================================================================================
 [Scripting]
 OpenSMO uses IronPython for scripting. OpenSMO also expects there to be a Scripts
 subdirectory where the OpenSMO.exe lives, with a file called "_Main.py".
