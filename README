@@ -11,20 +11,42 @@ Follow my progress: http://twitter.com/ansjh
 ================================================================================
 [Prerequisites]
 * IronPython (v2.7.0.40 or greater)
+	http://ironpython.codeplex.com/
+
 * MySQL Connector/Net (if using MySQL support)
+	https://dev.mysql.com/downloads/connector/net
 
 ================================================================================
 [Building]
-(Build steps to be verified)
+Ensure that the prerequisites are installed properly. Setup of the prerequisites
+might differ per platform. Typically, installers can be found for Windows, while
+those on Linux, BSD, OS X, and other operating systems will need to add the DLLs
+to their Mono collection.
 
 <Windows>
 Use StepServer.sln to build (via Visual C#, MSBuild, or what have you).
 
+(via MSBuild)
+0) Ensure that msbuild works by trying to run it from the command line by itself.
+If it does not work, you might need to use the Visual Studio Command Prompt.
+
+1) Once you have verified that msbuild is a valid command, go to the src folder
+and run "msbuild StepServer.sln" (without quotes; press enter... wait for the
+build process to happen).
+
+By default, msbuild builds only the Debug project. In order to build the
+Release project, you'll need to run "msbuild /p:Configuration=Release" instead.
+
+(via Visual Studio)
+1) Open src/StepServer.sln.
+2) Perform a build; Building makes both Debug and Release binaries.
+
 <Mono>
 1) Ensure IronPython is installed properly. A guide is available here:
 http://crowdtheory.wordpress.com/2012/08/05/getting-infer-net-and-ironpython-to-work-on-ubuntu-12-04/
+(You can ignore the parts about Infer.NET, as OpenSMO does not use it.)
 
-The IronPython-related DLLs you will need to copy into your mono collection are:
+The IronPython-related DLLs you will need to copy into your Mono collection are:
 * IronPython.dll
 * IronPython.Modules.dll
 * Microsoft.Scripting.dll
@@ -32,7 +54,7 @@ The IronPython-related DLLs you will need to copy into your mono collection are:
 2) Ensure the MySQL Connector/Net DLL (MySql.Data.dll) is installed.
 
 3) Once you've confirmed that these DLLs are installed, you can compile with
-xbuild. By default, xbuild builds the Debug project. In order to build the
+xbuild. By default, xbuild builds only the Debug project. In order to build the
 Release project, you'll need to run "xbuild /p:Configuration=Release" instead.
 
 ================================================================================
