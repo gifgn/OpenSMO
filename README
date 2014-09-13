@@ -8,6 +8,8 @@ Open-source Stepmania Online server written in Mono C#.
 
 Follow my progress: http://twitter.com/ansjh
 
+IRC: #opensmo on irc.freenode.net
+
 ================================================================================
 [Prerequisites]
 * IronPython (v2.7.0.40 or greater)
@@ -56,6 +58,11 @@ The IronPython-related DLLs you will need to copy into your Mono collection are:
 3) Once you've confirmed that these DLLs are installed, you can compile with
 xbuild. By default, xbuild builds only the Debug project. In order to build the
 Release project, you'll need to run "xbuild /p:Configuration=Release" instead.
+
+================================================================================
+[Configuration]
+OpenSMO requires a Config.ini in the same folder as the executable in order to
+run. Configuration documentation can be found in doc/Config.md.
 
 ================================================================================
 [Scripting]
